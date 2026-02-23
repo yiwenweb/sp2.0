@@ -10,7 +10,6 @@ import com.tencent.map.geolocation.TencentLocationManager;
 import com.tencent.navi.api.TencentCarNaviManager;
 import com.tencent.navi.api.listener.INaviInitListener;
 import com.tencent.navi.api.model.NaviInitConfig;
-import com.tencent.tencentmap.mapsdk.maps.TencentMapInitializer;
 
 /**
  * SP搭子 2.0 Application
@@ -54,11 +53,10 @@ public class App extends Application {
     }
 
     /**
-     * 腾讯地图SDK + 定位SDK 隐私合规初始化
-     * 必须在使用任何地图/定位功能之前调用
+     * 腾讯定位SDK 隐私合规初始化
+     * 必须在使用定位功能之前调用
      */
     private void initTencentMapPrivacy() {
-        TencentMapInitializer.setAgreePrivacy(true);
         TencentLocationManager.setUserAgreePrivacy(true);
     }
 

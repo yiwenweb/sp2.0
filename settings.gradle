@@ -10,9 +10,6 @@ dependencyResolutionManagement {
     repositories {
         google()
         mavenCentral()
-        // 腾讯地图SDK Maven仓库
-        maven { url 'https://mirrorservice.tencent.com/repository/maven-public/' }
-        maven { url 'https://oss.sonatype.org/content/repositories/snapshots/' }
     }
 }
 
