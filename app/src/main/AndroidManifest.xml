@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <!-- 网络 -->
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.CHANGE_WIFI_MULTICAST_STATE" />
+
+    <!-- 定位 -->
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_BACKGROUND_LOCATION" />
+
+    <!-- 前台服务 -->
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE_LOCATION" />
+    <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+
+    <!-- 震动 -->
+    <uses-permission android:name="android.permission.VIBRATE" />
+
+    <!-- 读写存储 (导航离线数据) -->
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+
+    <application
+        android:name=".App"
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="SP搭子2.0"
+        android:supportsRtl="true"
+        android:usesCleartextTraffic="true"
+        android:theme="@style/Theme.SPDazi2">
+
+        <!-- ★★★ 腾讯地图 API Key ★★★ -->
+        <!-- 请在 lbs.qq.com 注册并创建应用，获取 Key 后替换下方 value -->
+        <meta-data
+            android:name="TencentMapSDK"
+            android:value="YOUR_TENCENT_MAP_KEY_HERE" />
+
+        <!-- 主界面：搜索目的地 + C3连接 + 视频 -->
+        <activity
+            android:name=".MainActivity"
+            android:exported="true"
+            android:configChanges="orientation|screenSize|keyboardHidden"
+            android:screenOrientation="portrait">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <!-- 导航界面：全屏导航地图（横屏） -->
+        <activity
+            android:name=".NaviActivity"
+            android:configChanges="orientation|screenSize|keyboardHidden"
+            android:screenOrientation="landscape"
+            android:theme="@style/Theme.SPDazi2.Fullscreen" />
+
+        <!-- UDP 桥接前台服务 -->
+        <service
+            android:name=".service.BridgeService"
+            android:foregroundServiceType="location"
+            android:exported="false" />
+
+        <!-- 腾讯定位服务（定位SDK必须声明） -->
+        <service
+            android:name="com.tencent.map.geolocation.TencentLocationService"
+            android:exported="false" />
+
+        <!-- 腾讯导航SDK内部服务（导航SDK可能需要） -->
+        <service
+            android:name="com.tencent.navi.api.service.NaviService"
+            android:exported="false" />
+
+    </application>
+</manifest>

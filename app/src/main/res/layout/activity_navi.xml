@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- 导航界面：全屏导航地图 -->
+<!-- 注意：腾讯导航SDK的导航View由SDK内部管理，
+     NaviActivity 不需要在布局中声明 CarNaviView，
+     导航SDK会自动创建并管理导航界面。
+     这里只放一个容器供SDK渲染。 -->
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/navi_container"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#FF000000" />

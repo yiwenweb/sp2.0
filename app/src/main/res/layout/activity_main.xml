@@ -1,0 +1,220 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="#FF0D0D1A">
+
+    <!-- 上半部：视频 + HUD -->
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:background="#FF000000">
+
+        <android.webkit.WebView
+            android:id="@+id/wv_video"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+
+        <LinearLayout
+            android:id="@+id/tv_video_hint"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:orientation="vertical"
+            android:gravity="center">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="📡"
+                android:textSize="40sp" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="等待连接 C3 视频"
+                android:textSize="14sp"
+                android:textColor="#66FFFFFF"
+                android:paddingTop="8dp" />
+        </LinearLayout>
+
+        <!-- HUD 底部叠加 -->
+        <LinearLayout
+            android:id="@+id/hud_overlay"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom"
+            android:orientation="horizontal"
+            android:paddingStart="16dp"
+            android:paddingEnd="16dp"
+            android:paddingTop="16dp"
+            android:paddingBottom="10dp"
+            android:background="#CC000000"
+            android:gravity="center_vertical"
+            android:visibility="gone">
+
+            <TextView
+                android:id="@+id/tv_hud_speed"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="0"
+                android:textSize="42sp"
+                android:textColor="#FFFFFFFF"
+                android:fontFamily="sans-serif-thin" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text=" km/h"
+                android:textSize="11sp"
+                android:textColor="#66FFFFFF"
+                android:layout_gravity="bottom"
+                android:paddingBottom="8dp" />
+
+            <View android:layout_width="0dp" android:layout_height="1dp" android:layout_weight="1" />
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:gravity="center"
+                android:paddingEnd="20dp">
+                <TextView
+                    android:id="@+id/tv_hud_cruise"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="--"
+                    android:textSize="22sp"
+                    android:textColor="#FF00E5A0" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="巡航"
+                    android:textSize="10sp"
+                    android:textColor="#66FFFFFF" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:gravity="center">
+                <TextView
+                    android:id="@+id/tv_hud_gear"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="P"
+                    android:textSize="22sp"
+                    android:textColor="#FF7C8CFF" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="档位"
+                    android:textSize="10sp"
+                    android:textColor="#66FFFFFF" />
+            </LinearLayout>
+        </LinearLayout>
+    </FrameLayout>
+
+    <!-- 下半部：控制面板 -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="14dp">
+
+        <!-- 连接状态 -->
+        <TextView
+            android:id="@+id/tv_connection_state"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="未启动"
+            android:textSize="13sp"
+            android:textColor="#66FFFFFF"
+            android:paddingBottom="8dp" />
+
+        <!-- C3 IP 输入 -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:paddingBottom="8dp">
+
+            <EditText
+                android:id="@+id/et_c3_ip"
+                android:layout_width="0dp"
+                android:layout_height="44dp"
+                android:layout_weight="1"
+                android:hint="C3 IP 地址"
+                android:textSize="14sp"
+                android:textColor="#FFFFFFFF"
+                android:textColorHint="#44FFFFFF"
+                android:background="#FF1A1A2E"
+                android:paddingStart="12dp"
+                android:paddingEnd="12dp"
+                android:inputType="text"
+                android:singleLine="true" />
+
+            <Button
+                android:id="@+id/btn_connect"
+                android:layout_width="wrap_content"
+                android:layout_height="44dp"
+                android:text="连接"
+                android:textSize="13sp"
+                android:textColor="#FF0D0D1A"
+                android:backgroundTint="#FF00E5A0"
+                android:layout_marginStart="8dp" />
+
+            <Button
+                android:id="@+id/btn_start_stop"
+                android:layout_width="wrap_content"
+                android:layout_height="44dp"
+                android:text="启动服务"
+                android:textSize="13sp"
+                android:textColor="#FFFFFFFF"
+                android:backgroundTint="#FF6C63FF"
+                android:layout_marginStart="8dp" />
+        </LinearLayout>
+
+        <!-- 目的地搜索 -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:paddingBottom="8dp">
+
+            <EditText
+                android:id="@+id/et_destination"
+                android:layout_width="0dp"
+                android:layout_height="44dp"
+                android:layout_weight="1"
+                android:hint="输入目的地"
+                android:textSize="14sp"
+                android:textColor="#FFFFFFFF"
+                android:textColorHint="#44FFFFFF"
+                android:background="#FF1A1A2E"
+                android:paddingStart="12dp"
+                android:paddingEnd="12dp"
+                android:inputType="text"
+                android:singleLine="true" />
+
+            <Button
+                android:id="@+id/btn_start_navi"
+                android:layout_width="wrap_content"
+                android:layout_height="44dp"
+                android:text="🧭 开始导航"
+                android:textSize="13sp"
+                android:textColor="#FF0D0D1A"
+                android:backgroundTint="#FFFFB74D"
+                android:layout_marginStart="8dp" />
+        </LinearLayout>
+
+        <!-- 导航状态 -->
+        <TextView
+            android:id="@+id/tv_navi_status"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="等待导航数据..."
+            android:textSize="12sp"
+            android:textColor="#66FFFFFF" />
+    </LinearLayout>
+</LinearLayout>
