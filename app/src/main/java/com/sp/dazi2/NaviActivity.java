@@ -100,8 +100,7 @@ public class NaviActivity extends AppCompatActivity {
 
         TencentLocationRequest request = TencentLocationRequest.create()
             .setInterval(1000)  // 1秒更新一次
-            .setAllowGPS(true)
-            .setRequestLevel(TencentLocationRequest.REQUEST_LEVEL_GEO);
+            .setAllowGPS(true);
 
         int error = mLocationManager.requestLocationUpdates(request, mLocationListener);
         if (error == 0) {

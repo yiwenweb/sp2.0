@@ -58,7 +58,7 @@ sp2.0/
 // 地图SDK
 implementation 'com.tencent.map:tencent-map-vector-sdk:6.8.0'
 // 定位SDK
-implementation 'com.tencent.map:tencent-map-location:7.6.1.5'
+implementation 'com.tencent.map.geolocation:TencentLocationSdk-openplatform:7.5.4'
 // 导航SDK（新版拆分为 core + tts）
 implementation 'com.tencent.map:tencent-map-nav-sdk-core:6.3.0'
 implementation 'com.tencent.map:tencent-map-nav-sdk-tts:6.7.0'
@@ -172,11 +172,7 @@ TencentCarNaviManager.getInstance().updateLocation(naviLoc);
 5. 填写SHA1签名（debug签名: `keytool -list -v -keystore ~/.android/debug.keystore`）
 
 ### 2. 配置Key
-修改 `AndroidManifest.xml` 中的：
-```xml
-<meta-data android:name="TencentMapSDK" android:value="YOUR_TENCENT_MAP_KEY_HERE" />
-```
-替换 `YOUR_TENCENT_MAP_KEY_HERE` 为你申请的Key。
+Key 已内置在 `AndroidManifest.xml` 中，无需手动配置。
 
 ### 3. 编译运行
 用 Android Studio 打开 `sp2.0/` 目录，Sync Gradle 后 Build APK。

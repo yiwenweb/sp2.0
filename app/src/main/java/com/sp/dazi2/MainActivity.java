@@ -207,8 +207,8 @@ public class MainActivity extends AppCompatActivity {
         }
 
         String mapKey = getMapKey();
-        if (mapKey.isEmpty() || mapKey.equals("YOUR_TENCENT_MAP_KEY_HERE")) {
-            Toast.makeText(this, "请先在AndroidManifest.xml中配置腾讯地图Key",
+        if (mapKey.isEmpty()) {
+            Toast.makeText(this, "腾讯地图Key未配置",
                 Toast.LENGTH_LONG).show();
             return;
         }

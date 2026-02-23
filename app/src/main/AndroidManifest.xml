@@ -38,7 +38,7 @@
         <!-- 请在 lbs.qq.com 注册并创建应用，获取 Key 后替换下方 value -->
         <meta-data
             android:name="TencentMapSDK"
-            android:value="YOUR_TENCENT_MAP_KEY_HERE" />
+            android:value="XY2BZ-GGGC4-QSBUK-FKL6M-XNCHJ-FBBVE" />
 
         <!-- 主界面：搜索目的地 + C3连接 + 视频 -->
         <activity

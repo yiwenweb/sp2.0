@@ -43,8 +43,8 @@ dependencies {
     // ═══ 腾讯地图 SDK 三件套 ═══
     // 地图SDK (3D矢量地图)
     implementation 'com.tencent.map:tencent-map-vector-sdk:6.8.0'
-    // 定位SDK
-    implementation 'com.tencent.map:tencent-map-location:7.6.1.5'
+    // 定位SDK (groupId: com.tencent.map.geolocation)
+    implementation 'com.tencent.map.geolocation:TencentLocationSdk-openplatform:7.5.4'
     // 导航SDK (核心 + TTS语音)
     // 新版导航SDK拆分为 core + tts 两个模块
     implementation 'com.tencent.map:tencent-map-nav-sdk-core:6.3.0'
